@@ -2,6 +2,7 @@ import axios from 'axios'
 import React, { useState, useEffect } from 'react'
 import StreamerCard from './StreamerCard'
 
+const config = require('../config.json')
 
 const kickParser = (param: any) => {
 	const parseData: KickResponse = {
@@ -16,26 +17,26 @@ const kickParser = (param: any) => {
 }
 
 
+
+
 function MainComponent() {
-	const [data, setData] = useState<KickResponse>({
-		slug: "",
-		username: "",
-		profile_pic: "",
-		is_live: null,
-		view_count: null,
-		session_title: null
-	})
+	const [data, setData] = useState<Array<KickResponse>>([])
 	useEffect(() => {
-		axios.get("https://kick.com/api/v2/channels/averagedad")
-			.then((res) => setData(kickParser(res.data)))
-			.catch(err => console.error(err))
+		for (let index = 0; index < config["kick"].length; index++) {
+			const api_link = "https://kick.com/api/v2/channels/" + config["kick"][index];
+			axios.get(api_link)
+				.then(res => setData(data =>[...data, kickParser(res.data)]))
+				.catch(err => console.error(err))
+		}
 	}, [])
 
 	return (
 		<div>
 			MainComponent
-			<StreamerCard slug={data.slug} username={data.username} profile_pic={data.profile_pic} is_live={data.is_live}
-				session_title={data.session_title} view_count={data.view_count} />
+			{
+				data.map((val, idx) => <StreamerCard key={idx} is_live={val.is_live} slug={val.slug} username={val.username}
+				profile_pic={val.profile_pic} session_title={val.session_title} view_count={val.view_count} />)
+			}
 		</div>
 	)
 }

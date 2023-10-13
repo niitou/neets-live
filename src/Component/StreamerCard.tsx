@@ -1,15 +1,15 @@
 import React from 'react'
 
-function StreamerCard(param: KickResponse) {
+function StreamerCard(props : KickResponse) {
     return (
-        <a href={param.slug} target='_blank'>
-            <img src={param.profile_pic} alt={`${param.slug} + profile`} />
-            <h1>{param.username}</h1>
+        <a href={props.slug} target='_blank' rel='noreferrer'>
+            <img src={props.profile_pic} alt={`${props.slug} + profile`} />
+            <h1>{props.username}</h1>
             {
-            param.is_live ? 
+            props.is_live ? 
                 <div>
-                    {param.session_title}
-                    {param.view_count}
+                    {props.session_title}
+                    {props.view_count}
                 </div> : <></>
             }
         </a>
