@@ -38,6 +38,7 @@ function MainComponent() {
 		<div className='main-page-wrapper'>
 			MainComponent
 			<div className="online-wrapper">
+				<h1>LIVE</h1>
 			{
 				data.map((val, idx) =>
 					val.is_live ? 
@@ -47,6 +48,7 @@ function MainComponent() {
 			</div>
 
 			<div className="offline-wrapper">
+				<h1>OFFLINE</h1>
 			{
 				data.map((val, idx) =>
 					val.is_live ? 

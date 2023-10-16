@@ -5,8 +5,8 @@ body {
     margin: 0;
 }
 
-@mixin card {
-    background: yellow;
+@mixin card($color) {
+    background: $color;
     text-decoration: none;
     color: black;
     display: flex;
@@ -15,11 +15,23 @@ body {
         max-width: 100px;
     }
 
-    .card-name {
+    .card-title {
         font-weight: 500;
         .card-live{
-            display: block;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
             font-size: 12px;
+            .card-subtitle{
+                font-weight: 400;
+                text-overflow: ellipsis;
+            }
+
+            .live-count{
+                position: relative;
+                font-weight: 300;
+            }
         }
     }
 }
@@ -28,14 +40,14 @@ body {
     .main-page-wrapper {
         .online-wrapper {
             .card {
-                @include card();
+                @include card(lightgreen);
 
             }
         }
 
         .offline-wrapper {
             .card {
-                @include card()
+                @include card(grey)
             }
         }
     }
