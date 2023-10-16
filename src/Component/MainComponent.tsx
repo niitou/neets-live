@@ -35,7 +35,7 @@ function MainComponent() {
 	}, [])
 
 	return (
-		<div>
+		<div className='main-page-wrapper'>
 			MainComponent
 			<div className="online-wrapper">
 			{

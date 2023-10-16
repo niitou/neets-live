@@ -1,5 +1,42 @@
-html, body {
+html,
+body {
     box-sizing: content-box;
     padding: 0;
     margin: 0;
+}
+
+@mixin card {
+    background: yellow;
+    text-decoration: none;
+    color: black;
+    display: flex;
+    flex-direction: row;
+    .card-profile {
+        max-width: 100px;
+    }
+
+    .card-name {
+        font-weight: 500;
+        .card-live{
+            display: block;
+            font-size: 12px;
+        }
+    }
+}
+
+.wrapper {
+    .main-page-wrapper {
+        .online-wrapper {
+            .card {
+                @include card();
+
+            }
+        }
+
+        .offline-wrapper {
+            .card {
+                @include card()
+            }
+        }
+    }
 }

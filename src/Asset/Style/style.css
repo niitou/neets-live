@@ -1,5 +1,41 @@
-html, body {
+html,
+body {
   box-sizing: content-box;
   padding: 0;
   margin: 0;
+}
+
+.wrapper .main-page-wrapper .online-wrapper .card {
+  background: yellow;
+  text-decoration: none;
+  color: black;
+  display: flex;
+  flex-direction: row;
+}
+.wrapper .main-page-wrapper .online-wrapper .card .card-profile {
+  max-width: 100px;
+}
+.wrapper .main-page-wrapper .online-wrapper .card .card-name {
+  font-weight: 500;
+}
+.wrapper .main-page-wrapper .online-wrapper .card .card-name .card-live {
+  display: block;
+  font-size: 12px;
+}
+.wrapper .main-page-wrapper .offline-wrapper .card {
+  background: yellow;
+  text-decoration: none;
+  color: black;
+  display: flex;
+  flex-direction: row;
+}
+.wrapper .main-page-wrapper .offline-wrapper .card .card-profile {
+  max-width: 100px;
+}
+.wrapper .main-page-wrapper .offline-wrapper .card .card-name {
+  font-weight: 500;
+}
+.wrapper .main-page-wrapper .offline-wrapper .card .card-name .card-live {
+  display: block;
+  font-size: 12px;
 }/*# sourceMappingURL=style.css.map */
