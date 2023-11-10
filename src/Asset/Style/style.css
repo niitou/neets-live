@@ -5,59 +5,133 @@ body {
   margin: 0;
 }
 
+.wrapper .main-page-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.wrapper .main-page-wrapper .online-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
 .wrapper .main-page-wrapper .online-wrapper .card {
-  background: lightgreen;
+  background: #151515;
   text-decoration: none;
-  color: black;
+  color: white;
   display: flex;
   flex-direction: row;
+  width: 70%;
+  margin: 0.25em 0;
+  border-right: 5px solid lightgreen;
+  overflow: hidden;
 }
 .wrapper .main-page-wrapper .online-wrapper .card .card-profile {
-  max-width: 100px;
+  max-width: 55px;
+  aspect-ratio: 1/1;
 }
-.wrapper .main-page-wrapper .online-wrapper .card .card-title {
-  font-weight: 500;
-}
-.wrapper .main-page-wrapper .online-wrapper .card .card-title .card-live {
+.wrapper .main-page-wrapper .online-wrapper .card .live-wrapper {
+  width: 100%;
+  justify-content: space-between;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   align-items: center;
-  font-size: 12px;
 }
-.wrapper .main-page-wrapper .online-wrapper .card .card-title .card-live .card-subtitle {
-  font-weight: 400;
-  text-overflow: ellipsis;
+.wrapper .main-page-wrapper .online-wrapper .card .live-wrapper .streamer-info {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
 }
-.wrapper .main-page-wrapper .online-wrapper .card .card-title .card-live .live-count {
-  position: relative;
-  font-weight: 300;
+.wrapper .main-page-wrapper .online-wrapper .card .live-wrapper .streamer-info .streamer-name {
+  font-size: 1rem;
+  white-space: nowrap;
+}
+.wrapper .main-page-wrapper .online-wrapper .card .live-wrapper .streamer-info .stream-title {
+  font-size: 0.9rem;
+  color: #a9a9a9;
+  white-space: nowrap;
+}
+.wrapper .main-page-wrapper .online-wrapper .card .live-wrapper .live-count {
+  display: flex;
+  align-items: center;
+  margin-right: 5px;
+}
+.wrapper .main-page-wrapper .online-wrapper .card .live-wrapper .live-count .viewers {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+.wrapper .main-page-wrapper .online-wrapper .card .offline-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.wrapper .main-page-wrapper .online-wrapper .card .offline-wrapper .streamer-name {
+  margin: 0 10px;
+  display: flex;
+  align-items: center;
+}
+.wrapper .main-page-wrapper .offline-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 .wrapper .main-page-wrapper .offline-wrapper .card {
-  background: grey;
+  background: #151515;
   text-decoration: none;
-  color: black;
+  color: white;
   display: flex;
   flex-direction: row;
+  width: 70%;
+  margin: 0.25em 0;
+  border-right: 5px solid grey;
+  overflow: hidden;
 }
 .wrapper .main-page-wrapper .offline-wrapper .card .card-profile {
-  max-width: 100px;
+  max-width: 55px;
+  aspect-ratio: 1/1;
 }
-.wrapper .main-page-wrapper .offline-wrapper .card .card-title {
-  font-weight: 500;
-}
-.wrapper .main-page-wrapper .offline-wrapper .card .card-title .card-live {
+.wrapper .main-page-wrapper .offline-wrapper .card .live-wrapper {
+  width: 100%;
+  justify-content: space-between;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   align-items: center;
-  font-size: 12px;
 }
-.wrapper .main-page-wrapper .offline-wrapper .card .card-title .card-live .card-subtitle {
-  font-weight: 400;
-  text-overflow: ellipsis;
+.wrapper .main-page-wrapper .offline-wrapper .card .live-wrapper .streamer-info {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
 }
-.wrapper .main-page-wrapper .offline-wrapper .card .card-title .card-live .live-count {
-  position: relative;
-  font-weight: 300;
+.wrapper .main-page-wrapper .offline-wrapper .card .live-wrapper .streamer-info .streamer-name {
+  font-size: 1rem;
+  white-space: nowrap;
+}
+.wrapper .main-page-wrapper .offline-wrapper .card .live-wrapper .streamer-info .stream-title {
+  font-size: 0.9rem;
+  color: #a9a9a9;
+  white-space: nowrap;
+}
+.wrapper .main-page-wrapper .offline-wrapper .card .live-wrapper .live-count {
+  display: flex;
+  align-items: center;
+  margin-right: 5px;
+}
+.wrapper .main-page-wrapper .offline-wrapper .card .live-wrapper .live-count .viewers {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+.wrapper .main-page-wrapper .offline-wrapper .card .offline-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.wrapper .main-page-wrapper .offline-wrapper .card .offline-wrapper .streamer-name {
+  margin: 0 10px;
+  display: flex;
+  align-items: center;
 }/*# sourceMappingURL=style.css.map */

@@ -6,39 +6,76 @@ body {
 }
 
 @mixin card($color) {
-    background: $color;
+    background: #151515;
     text-decoration: none;
-    color: black;
+    color: white;
     display: flex;
     flex-direction: row;
-    .card-profile {
-        max-width: 100px;
+    width: 70%;
+    margin: .25em 0;
+    border-right: 5px solid $color;
+    overflow: hidden;
+    .card-profile{
+        max-width: 55px;
+        aspect-ratio: 1 / 1;
     }
 
-    .card-title {
-        font-weight: 500;
-        .card-live{
+    .live-wrapper{
+        width: 100%;
+        justify-content: space-between;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        .streamer-info{
             display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 12px;
-            .card-subtitle{
-                font-weight: 400;
-                text-overflow: ellipsis;
+            flex-direction: column;
+            margin-left: 10px;
+            .streamer-name{
+                font-size: 1rem;
+                white-space: nowrap;
             }
+            .stream-title{
+                font-size: .9rem;
+                color: #a9a9a9;
+                white-space: nowrap;
+            }
+        }
 
-            .live-count{
-                position: relative;
-                font-weight: 300;
+        .live-count{
+            display: flex;
+            align-items: center;
+            margin-right: 5px;
+            .viewers{
+                font-size: 1.25rem;
+                font-weight: 600;
             }
+        }
+    }
+
+    .offline-wrapper{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        .streamer-name{
+            margin: 0 10px;
+            display: flex;
+            align-items: center;
         }
     }
 }
 
 .wrapper {
     .main-page-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
         .online-wrapper {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
             .card {
                 @include card(lightgreen);
 
@@ -46,6 +83,11 @@ body {
         }
 
         .offline-wrapper {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
             .card {
                 @include card(grey)
             }
