@@ -1,24 +1,24 @@
 import React from 'react'
 
-function StreamerCard(props: KickResponse) {
+function StreamerCard(props: StreamInfo) {
     return (
-        <a href={props.slug} target='_blank' rel='noreferrer' className='card'>
-            <img src={props.profile_pic} alt={`${props.slug} + profile`} className='card-profile' />
+        <a href={props.stream_url} target='_blank' rel='noreferrer' className={`card ${props.stream_site}-card`}>
+            <img src={props.streamer_profile} alt={`${props.stream_url} + profile`} className='card-profile' />
 
             {
-                props.is_live ?
-                    <div className='live-wrapper'>
+                props.stream_live ?
+                    <div className="online-card-wrapper">
                         <div className='streamer-info'>
-                            <span className='streamer-name'>{props.username}</span>
-                            <span className='stream-title'>{props.session_title}</span>
+                            <span className='streamer-name'>{props.streamer_username}</span>
+                            <span className='stream-title'>{props.stream_title}</span>
                         </div>
                         <div className='live-count'>
-                            <span className='viewers'>{props.view_count}</span>
+                            <span className='viewers'>{props.stream_view_count}</span>
                         </div>
                     </div> :
 
-                    <div className='offline-wrapper'>
-                        <span className='streamer-name'>{props.username}</span>
+                    <div className='offline-card-wrapper'>
+                        <span className='streamer-name'>{props.streamer_username}</span>
                     </div>
             }
         </a>
