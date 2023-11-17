@@ -1,11 +1,14 @@
 html,
 body {
+    width: 100%;
+    height: 100%;
+    background-color: rgb(12,12,12);
     box-sizing: content-box;
     padding: 0;
     margin: 0;
 }
 
-@mixin card($color) {
+@mixin card($color, $online:false) {
     background: #151515;
     text-decoration: none;
     color: white;
@@ -13,14 +16,16 @@ body {
     flex-direction: row;
     width: 70%;
     margin: .25em 0;
-    border-right: 5px solid $color;
+    @if $online{
+        border-right: 5px solid $color;
+    }
     overflow: hidden;
     .card-profile{
-        max-width: 55px;
+        max-width: 70px;
         aspect-ratio: 1 / 1;
     }
 
-    .live-wrapper{
+    .online-card-wrapper{
         width: 100%;
         justify-content: space-between;
         display: flex;
@@ -35,6 +40,7 @@ body {
                 white-space: nowrap;
             }
             .stream-title{
+                max-width: 1em;
                 font-size: .9rem;
                 color: #a9a9a9;
                 white-space: nowrap;
@@ -42,9 +48,12 @@ body {
         }
 
         .live-count{
+            background-color: #151515;
+            height: 100%;
             display: flex;
             align-items: center;
-            margin-right: 5px;
+            padding-right: 5px;
+            padding-left: 5px;
             .viewers{
                 font-size: 1.25rem;
                 font-weight: 600;
@@ -52,10 +61,11 @@ body {
         }
     }
 
-    .offline-wrapper{
+    .offline-card-wrapper{
         display: flex;
         flex-direction: column;
         align-items: flex-start;
+        justify-content: center;
         .streamer-name{
             margin: 0 10px;
             display: flex;
@@ -65,24 +75,43 @@ body {
 }
 
 .wrapper {
+    .site-banner{
+        .banner-image{
+            width: 100%;
+            filter: blur(2px);
+        }
+    }
     .main-page-wrapper {
+        margin-top: 1em;
+        margin-bottom: 2em;
+        .heading-text{
+            color: white;
+        }
         display: flex;
         align-items: center;
         justify-content: center;
         flex-direction: column;
-        .online-wrapper {
+        .online-wrapper{
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             width: 100%;
-            .card {
-                @include card(lightgreen);
-
+            .card.kick-card{
+                @include card(lightgreen, true);
+            }
+            .card.youtube-card{
+                @include card(rgb(230, 83, 81), true)
+            }
+            .card.twitch-card{
+                @include card(rgb(160, 81, 230), true)
             }
         }
 
         .offline-wrapper {
+            .heading-text{
+                color: white;
+            }
             display: flex;
             flex-direction: column;
             justify-content: center;
