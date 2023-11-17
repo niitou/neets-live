@@ -20,41 +20,44 @@ const kickParser = (param: any) => {
 
 
 function MainComponent() {
-	const [data, setData] = useState<Array<KickResponse>>([])
+	const [kickData, setKickData] = useState<Array<KickResponse>>([])
 	useEffect(() => {
 		for (let index = 0; index < config["kick"].length; index++) {
 			const api_link = "https://kick.com/api/v2/channels/" + config["kick"][index];
 			axios.get(api_link)
-				.then(res => setData(data => [...data, kickParser(res.data)]))
+				.then(res => setKickData(kickData => [...kickData, kickParser(res.data)]))
 				.catch(err => console.error(err))
 		}
 
 		return () => {
-			setData([])
+			setKickData([])
 		}
 	}, [])
 
 	return (
 		<div className='main-page-wrapper'>
-			MainComponent
 			<div className="online-wrapper">
-				<h1>LIVE</h1>
-			{
-				data.map((val, idx) =>
-					val.is_live ? 
-					<StreamerCard key={idx} {...val} /> : <></>
-				)
-			}
+				<h1 className='heading-text'>LIVE</h1>
+				{
+					kickData.map((val, idx) =>
+						val.is_live ?
+							<StreamerCard key={idx} stream_site='youtube' stream_live={val.is_live} stream_title={val.session_title}
+								stream_url={val.slug} stream_view_count={val.view_count} streamer_profile={val.profile_pic}
+								streamer_username={val.username} /> : <></>
+					)
+				}
 			</div>
 
 			<div className="offline-wrapper">
-				<h1>OFFLINE</h1>
-			{
-				data.map((val, idx) =>
-					val.is_live ? 
-					<></> : <StreamerCard key={idx} {...val} />
-				)
-			}
+				<h1 className='heading-text'>OFFLINE</h1>
+				{
+					kickData.map((val, idx) =>
+						val.is_live ?
+							<></> : <StreamerCard key={idx} stream_site='kick' stream_live={val.is_live} stream_title={val.session_title}
+								stream_url={val.slug} stream_view_count={val.view_count} streamer_profile={val.profile_pic}
+								streamer_username={val.username} />
+					)
+				}
 			</div>
 		</div>
 	)
