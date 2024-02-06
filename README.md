@@ -5,3 +5,7 @@ TODO List:
 - Add YT and Twitch
 - Sort by view count (?)
 - Change the theme color
+
+
+# Project Archived
+Need to process the API call on a separate service
